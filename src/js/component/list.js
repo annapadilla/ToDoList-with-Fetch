@@ -21,7 +21,7 @@ export class List extends React.Component {
 		return (
 			<React.Fragment>
 				<div id="header">todo</div>
-				<div className="container">
+				<div className="container my-container">
 					<div className="row">
 						<input
 							onKeyPress={e =>
@@ -51,6 +51,9 @@ export class List extends React.Component {
 								);
 							})}
 						</ul>
+					</div>
+					<div className="row counter pl-3">
+						{"Items left: " + this.state.todo.length}
 					</div>
 				</div>{" "}
 			</React.Fragment>

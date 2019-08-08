@@ -6,7 +6,7 @@
     color:#D24660;
     text-align: center;
 }
-.container {
+.my-container {
     width: 500px;
     font-weight:200;
     font-size: 30px;
@@ -26,6 +26,10 @@
     /* Padding for demo purposes */
     // padding: 30px;
 
+}
+.counter{
+    font-size: 20px;
+    font-weight: 100;
 }
 .list {
     list-style-type: none;
