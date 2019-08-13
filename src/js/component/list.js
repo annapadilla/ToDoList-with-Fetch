@@ -4,14 +4,38 @@ export class List extends React.Component {
 		super(props);
 		// Don't call this.setState() here!
 		this.state = {
-			todo: [
-				{ label: "Wash my hands" },
-				{ label: "Make the bed" },
-				{ label: "Eat" },
-				{ label: "Walk the dog" }
-			]
+			todo: []
 		};
 	}
+	componentDidMount() {
+		fetch("https://assets.breatheco.de/apis/fake/todos/user/annap")
+			.then(response => response.json())
+			.then(data => {
+				this.setState({ todo: data });
+			});
+	}
+	updateToDoList() {
+		e =>
+			e.charCode == 13
+				? this.setState(
+						fetch(
+							"https://assets.breatheco.de/apis/fake/todos/user/annap",
+							{
+								method: "POST",
+								body: JSON.stringify(todo),
+								headers: {
+									"Content-Type": "application/json"
+								}
+							}
+						)
+							.then(response => response.json())
+							.then(data => {
+								this.setState({ todo: data });
+							})
+				  )
+				: null;
+	}
+
 	deleteItem(pupu) {
 		const todo = [...this.state.todo];
 		const updatedList = todo.filter(value => value.label !== pupu);
